@@ -177,7 +177,10 @@ const build = async ({
 
     return builder.build({
       targets: target,
-      config
+      config,
+      // prevent electron-builder from trying to guess where to publish to since
+      // we upload them ourselves from the release workflow
+      publish: null
     });
   };
 
