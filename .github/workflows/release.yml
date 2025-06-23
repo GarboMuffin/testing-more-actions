@@ -31,8 +31,6 @@ jobs:
     - name: Package
       run: |
         node release-automation/build.js --debian --tarball --appimage --x64 --armv7l --arm64 --production
-      env:
-        GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
     - name: Upload artifacts to GitHub Actions
       uses: actions/upload-artifact@v4
       with:
@@ -78,7 +76,6 @@ jobs:
         # for safety
         rm "$APPLE_API_KEY_NAME"
       env:
-        GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         APPLE_API_ISSUER: ${{ secrets.APPLE_API_ISSUER }}
         APPLE_API_KEY_ID: ${{ secrets.APPLE_API_KEY_ID }}
         APPLE_API_KEY_NAME: ${{ secrets.APPLE_API_KEY_NAME }}
@@ -146,8 +143,6 @@ jobs:
         node release-automation/build.js --windows --microsoft-store --x64 --ia32 --arm64 --production
         node release-automation/build.js --windows-portable --x64 --production
         node release-automation/build.js --windows-legacy --ia32 --x64 --production
-      env:
-        GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
     - name: Upload artifacts to GitHub Actions
       uses: actions/upload-artifact@v4
       with:
