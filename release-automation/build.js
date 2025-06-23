@@ -50,12 +50,6 @@ const getArchesToBuild = (platformName) => {
   return arches;
 };
 
-const getPublish = () => process.env.GH_TOKEN ? ({
-  provider: 'github',
-  owner: 'TurboWarp',
-  repo: 'desktop'
-}) : null;
-
 const downloadElectronArtifact = async ({version, platform, artifactName, arch}) => {
   const name = `${artifactName}-v${version}-${platform}-${arch}`;
   const extractPath = pathUtil.join(__dirname, '.cache', name);
@@ -183,8 +177,7 @@ const build = async ({
 
     return builder.build({
       targets: target,
-      config,
-      publish: manageUpdates ? getPublish() : null
+      config
     });
   };
 
