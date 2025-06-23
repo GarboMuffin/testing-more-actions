@@ -158,7 +158,7 @@ jobs:
       id: signpath-unsigned
       with:
         name: artifact-for-signpath
-        path: D:\repo\dist\TurboWarp Setup*x64.exe
+        path: D:\repo\dist\TurboWarp-Setup*x64.exe
     - name: Sign executables with SignPath
       uses: signpath/github-action-submit-signing-request@4f13d373e8f0cd8d3c0465ff4877feff27aed2ae
       with:
